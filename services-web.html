@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Website Development Services | Asta Epsilon Infotronics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet" />
+
+  <!-- Shared base styles from your site (nav, footer, colors, etc.) -->
+  <style>
+    :root {
+      --bg-main: #f4f5f7;
+      --bg-alt: #e9edf0;
+      --accent: #3b3c36;
+      --accent-soft: #7b7d77;
+      --accent-bright: #ff6f20;
+      --text-main: #222426;
+      --text-muted: #5b5d60;
+      --border-soft: #d1d5db;
+      --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Glacial Indifference', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    /* PAGE SHELL */
+    .page-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAVBAR (reused) */
+    header {
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+      z-index: 20;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-left img.logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .brand-subtitle {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent-soft);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-menu a {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-bright);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+      .nav-menu {
+        flex-wrap: wrap;
+        row-gap: 0.4rem;
+      }
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      flex: 1;
+      padding: 2.5rem 0 3rem;
+    }
+
+    /* INTRO SECTION */
+    .services-intro {
+      margin-bottom: 2.25rem;
+    }
+
+    .services-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .services-title {
+      font-size: 1.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .services-title span {
+      color: var(--accent-bright);
+    }
+
+    .services-intro p {
+      color: var(--text-muted);
+      max-width: 40rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .services-note {
+      font-size: 0.8rem;
+      color: var(--accent-soft);
+      margin-top: 0.6rem;
+    }
+
+    /* PRICING GRID */
+    .pricing-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 880px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.5rem 1.5rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card.highlight {
+      border-color: var(--accent-bright);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .pricing-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .pricing-name {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.15rem;
+    }
+
+    .pricing-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-left: 0.15rem;
+    }
+
+    .pricing-tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .pricing-divider {
+      border-top: 1px dashed var(--border-soft);
+      margin: 0.9rem 0 0.9rem;
+    }
+
+    .features-list {
+      list-style: none;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 1.1rem;
+    }
+
+    .features-list li {
+      display: flex;
+      gap: 0.45rem;
+      align-items: flex-start;
+    }
+
+    .features-bullet {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .features-text span {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .pricing-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .pricing-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ADD-ONS SECTION */
+    .addons-section {
+      border-top: 1px solid var(--border-soft);
+      padding-top: 2rem;
+    }
+
+    .addons-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: flex-end;
+      margin-bottom: 1.25rem;
+    }
+
+    .addons-title {
+      font-size: 1.2rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .addons-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 28rem;
+    }
+
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .addons-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .addons-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .addon-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1rem 1rem 1.1rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+    }
+
+    .addon-name {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .addon-price {
+      font-size: 0.95rem;
+      color: var(--accent-soft);
+      margin-bottom: 0.3rem;
+    }
+
+    .addon-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 1rem 0 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      color: var(--accent-soft);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <!-- NAVBAR -->
+    <header>
+      <div class="container nav">
+        <div class="nav-left">
+          <a href="index.html">
+            <img src="logo.png" alt="Asta Epsilon Infotronics logo" class="logo" />
+          </a>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="about.html">About Us</a>
+          <a href="services-web.html">Web Dev</a>
+          <a href="services-software.html">Software</a>
+          <a href="services-print.html">Printable Design</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="services-intro">
+        <div class="container">
+          <div class="services-kicker">Website development</div>
+          <h1 class="services-title">
+            Static <span>sites</span>, tuned for real use
+          </h1>
+          <p>
+            Pre-scoped website packages for portfolios and small businesses, built with clean HTML, CSS, and JavaScript so they are fast, reliable, and easy to host.
+          </p>
+          <p>
+            All work is done by the Asta Epsilon Infotronics team, with clear estimates and a predictable set of features in each tier.
+          </p>
+          <p class="services-note">
+            Prices are in Indian Rupees (INR) and include development, testing, and basic handover docs.
+          </p>
+        </div>
+      </section>
+
+      <!-- MAIN PACKAGES -->
+      <section class="pricing-section">
+        <div class="container pricing-grid">
+            <!-- Basic Portfolio -->
+            <article class="pricing-card">
+            <div class="pricing-label">Plan 01</div>
+            <h2 class="pricing-name">Basic Portfolio Site</h2>
+            <div class="pricing-price">₹ 7,999<span>one-time</span></div>
+            <p class="pricing-tagline">
+                A focused, single-page presence with everything you need to look professional online.
+            </p>
+
+            <div class="pricing-divider"></div>
+
+            <ul class="features-list">
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text"><span>Single-page layout</span> with sections for intro, services, projects, and contact.</div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text"><span>Basic SEO</span> (meta tags, title structure, clean URLs where applicable).</div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text"><span>Mobile responsiveness</span> so it looks good on phones, tablets, and desktops.</div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text"><span>Domain + hosting for one year</span> included at no extra cost.</div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">Static HTML/CSS/JS stack for <span>speed and low maintenance</span>.</div>
+                </li>
+            </ul>
+
+            <div class="pricing-cta">
+                <a href="contact.html" class="btn-primary">Get Basic Portfolio</a>
+                <div class="pricing-meta">Best for individuals, students, and small portfolios.</div>
+            </div>
+            </article>
+
+            <!-- Custom Suite -->
+            <article class="pricing-card highlight">
+            <div class="pricing-label">Plan 02</div>
+            <h2 class="pricing-name">Custom Frontend Suite</h2>
+            <div class="pricing-price">₹ 14,499<span>one-time</span></div>
+            <p class="pricing-tagline">
+                A small multi-page site with richer content, interactivity, and integrations.
+            </p>
+
+            <div class="pricing-divider"></div>
+
+            <ul class="features-list">
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text"><span>Three custom pages</span> (for example: Home, Services, Contact/Projects).</div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">Includes <span>all Basic Portfolio features</span> (SEO, responsiveness, domain + hosting for one year).</div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text"><span>WhatsApp booking integration</span> for quick contact or appointment requests.</div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>Social media integration</span> with any 3 platforms you choose
+                    (Facebook, X, Instagram, GitHub, LinkedIn).
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>Extra media support</span> for up to 3 video embeds or showcases.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>Animations</span> for key sections to draw attention without being distracting.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>Custom popup</span> for announcements, offers, or any message you want visitors to see.
+                </div>
+                </li>
+            </ul>
+
+            <div class="pricing-cta">
+                <a href="contact.html" class="btn-primary">Get Custom Suite</a>
+                <div class="pricing-meta">Ideal for small businesses, events, and product launches.</div>
+            </div>
+            </article>
+
+            <!-- Basic Full Stack Site -->
+            <article class="pricing-card">
+            <div class="pricing-label">Plan 03</div>
+            <h2 class="pricing-name">Basic Full Stack Site</h2>
+            <div class="pricing-price">₹ 13,999<span>one-time</span></div>
+            <p class="pricing-tagline">
+                A simple full stack setup with a static frontend and a Python backend you can grow from.
+            </p>
+
+            <div class="pricing-divider"></div>
+
+            <ul class="features-list">
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>HTML/CSS frontend</span> built on a clean, responsive layout.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    Includes <span>one extra page</span> on top of the main site structure.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    Includes <span>extra media</span> support for richer content on the site.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>Flask backend</span> in Python for handling forms, basic logic, and dynamic routes.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>MySQL database</span> wired to the Flask app for storing structured data.
+                </div>
+                </li>
+            </ul>
+
+            <div class="pricing-cta">
+                <a href="contact.html" class="btn-primary">Get Basic Full Stack</a>
+                <div class="pricing-meta">Good for small apps, dashboards, and simple tools.</div>
+            </div>
+            </article>
+
+            <!-- Advanced Full Stack Site -->
+            <article class="pricing-card">
+            <div class="pricing-label">Plan 04</div>
+            <h2 class="pricing-name">Advanced Full Stack Site</h2>
+            <div class="pricing-price">₹ 19,999<span>one-time</span></div>
+            <p class="pricing-tagline">
+                A Node.js stack for more complex flows, APIs, and integrations on top of a static frontend.
+            </p>
+
+            <div class="pricing-divider"></div>
+
+            <ul class="features-list">
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>HTML/CSS frontend</span> with responsive layouts and componentized sections.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    Includes <span>one extra page</span> for additional content or features.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    Includes <span>extra media</span> to showcase more visuals or demos.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>Node.js + Express.js backend</span> with routes, controllers, and middleware.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>MySQL database</span> integration for relational data and reporting.
+                </div>
+                </li>
+            </ul>
+
+            <div class="pricing-cta">
+                <a href="contact.html" class="btn-primary">Get Advanced Full Stack</a>
+                <div class="pricing-meta">A fit for booking systems, admin panels, and API-backed sites.</div>
+            </div>
+            </article>
+
+            <!-- Custom Full Stack Site -->
+            <article class="pricing-card">
+            <div class="pricing-label">Plan 05</div>
+            <h2 class="pricing-name">Custom Full Stack Site</h2>
+            <div class="pricing-price">₹ 33,999<span>one-time</span></div>
+            <p class="pricing-tagline">
+                A flexible Node.js + MongoDB stack tailored to more complex or evolving data models.
+            </p>
+
+            <div class="pricing-divider"></div>
+
+            <ul class="features-list">
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>HTML/CSS frontend</span> designed for your brand and content structure.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    Includes <span>one extra page</span> to support additional flows or information.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    Includes <span>extra media</span> for more visuals, demos, or product sections.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>Node.js + Express.js backend</span> for APIs, auth flows, and custom logic.
+                </div>
+                </li>
+                <li>
+                <span class="features-bullet"></span>
+                <div class="features-text">
+                    <span>MongoDB database</span> for flexible, document-based data structures.
+                </div>
+                </li>
+            </ul>
+
+            <div class="pricing-cta">
+                <a href="contact.html" class="btn-primary">Get Custom Full Stack</a>
+                <div class="pricing-meta">Best for evolving products, dashboards, and data-heavy apps.</div>
+            </div>
+            </article>
+        </div>
+        </section>
+
+
+      <!-- ADD-ONS -->
+      <section class="addons-section">
+        <div class="container">
+          <div class="addons-header">
+            <h2 class="addons-title">Add ons</h2>
+            <p class="addons-subtitle">
+              Fine-tune either package with extra pages, media, and upgrades for the Basic Portfolio so your site matches exactly what you need.
+            </p>
+          </div>
+
+          <div class="addons-grid">
+            <div class="addon-card">
+              <div class="addon-name">Extra Page</div>
+              <div class="addon-price">₹ 999</div>
+              <div class="addon-note">
+                Add one fully designed and responsive page to your existing site.
+              </div>
+            </div>
+
+            <div class="addon-card">
+              <div class="addon-name">Extra Media</div>
+              <div class="addon-price">₹ 49 / item</div>
+              <div class="addon-note">
+                Add more images or video embeds beyond the included limits.
+              </div>
+            </div>
+
+            <div class="addon-card">
+              <div class="addon-name">WhatsApp Redirect (Basic only)</div>
+              <div class="addon-price">₹ 799</div>
+              <div class="addon-note">
+                One-tap WhatsApp redirect from your Basic Portfolio site for quick chats.
+              </div>
+            </div>
+
+            <div class="addon-card">
+              <div class="addon-name">Social Media Integrations (Basic only)</div>
+              <div class="addon-price">₹ 2,099</div>
+              <div class="addon-note">
+                Add social icons and links for any 3 platforms (Facebook, X, Instagram, GitHub, LinkedIn).
+              </div>
+            </div>
+
+            <div class="addon-card">
+              <div class="addon-name">Animations (Basic only)</div>
+              <div class="addon-price">₹ 2,499</div>
+              <div class="addon-note">
+                Subtle scroll or hover animations applied to key sections of the Basic Portfolio site.
+              </div>
+            </div>
+
+            <div class="addon-card">
+              <div class="addon-name">Popups (Basic only)</div>
+              <div class="addon-price">₹ 49</div>
+              <div class="addon-note">
+                A simple custom popup for announcements, offers, or important updates.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © <span id="year"></span> Asta Epsilon Infotronics. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
