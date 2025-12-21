@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us | Asta Epsilon Infotronics</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../media/pictures/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet" />
+  <!-- Reuse your existing <style> from index.html (navbar, container, footer, etc.) -->
+
+</head>
+<body>
+  <div class="page-shell">
+    <!-- Same header as index.html -->
+    <header>
+      <div class="container nav">
+        <div class="nav-left">
+          <a href="index.html">
+              <img src="../media/pictures/logo.png" alt="Asta Epsilon Infotronics logo" class="logo" />
+          </a>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="about.html">About Us</a>
+          <a href="services-web.html">Web Dev</a>
+          <a href="services-software.html">Software</a>
+          <a href="services-other.html">Other Services</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ABOUT SECTION -->
+      <section class="about-hero">
+        <div class="container about-hero-grid">
+          <div class="about-text">
+            <div class="about-kicker">About the collective</div>
+            <h1 class="about-title">
+              Five <span>engineers</span>, one lab
+            </h1>
+            <p>
+              Asta Epsilon Infotronics is run by five computer engineering students from Kolkata who treat every project like a lab experiment: define the problem, design the system, measure the results, then iterate.
+            </p>
+            <p>
+              Between classes, research work, and hackathons, the team prototypes websites, software tools, printable graphics, and IoT devices that are actually used on campus and by early-stage clients.
+            </p>
+            <p class="about-tagline">
+              The group is small on purpose, so every build has a clear owner and a fast response loop.
+            </p>
+          </div>
+
+          <aside class="about-meta-card">
+            <h3>Snapshot</h3>
+            <ul class="about-meta-list">
+              <li><span>Base:</span> Kolkata, India</li>
+              <li><span>Discipline:</span> Computer engineering students</li>
+              <li><span>Focus:</span> Web, software, printable design, IoT devices</li>
+              <li><span>Style:</span> Clean, industrial, production-minded builds</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- WHY BUY / WHY US FOR SERVICES & DEVICES -->
+      <section class="why-buy">
+        <div class="container">
+          <div class="why-buy-header">
+            <h2 class="why-buy-title">Why choose our builds</h2>
+            <p class="why-buy-subtitle">
+              Whether it is a website, a desktop tool, a batch of posters, or a sensor module, the team designs it as if it will be deployed in a production environment, not just submitted for marks.
+            </p>
+          </div>
+
+          <div class="why-buy-grid">
+            <div class="why-buy-card">
+              <div class="why-buy-label">Web &amp; software</div>
+              <h3>Practical engineering, not demos</h3>
+              <p>
+                Code is written to be readable and maintainable, with simple stacks that work on real hosting and hardware, so you are not locked into student-only tech or one specific developer.
+              </p>
+            </div>
+
+            <div class="why-buy-card">
+              <div class="why-buy-label">Design</div>
+              <h3>Technical stories made visual</h3>
+              <p>
+                Posters, flyers, and logos are built around grids, hierarchy, and legible type so your technical message stands out on notice boards, timelines, and project reports.
+              </p>
+            </div>
+
+            <div class="why-buy-card">
+              <div class="why-buy-label">IoT &amp; devices</div>
+              <h3>From breadboard to usable unit</h3>
+              <p>
+                Sensors and small devices are wired, tested, and documented with clear labels and connection diagrams so you can plug them into your own systems without guesswork.
+              </p>
+            </div>
+
+            <div class="why-buy-card">
+              <div class="why-buy-label">Collaboration</div>
+              <h3>Direct access to builders</h3>
+              <p>
+                You talk to the same students who are actually designing your solution, which keeps feedback cycles short and reduces miscommunication compared to larger agencies.
+              </p>
+            </div>
+
+            <div class="why-buy-card">
+              <div class="why-buy-label">Value</div>
+              <h3>Student pricing, pro mindset</h3>
+              <p>
+                Rates reflect a student studio, but the team still ships with estimates, milestones, and handover docs so you know what you are getting and when.
+              </p>
+            </div>
+
+            <div class="why-buy-card">
+              <div class="why-buy-label">Future-ready</div>
+              <h3>Built to evolve</h3>
+              <p>
+                Each project leaves room for upgrades, whether that means adding new pages, features, or attaching more sensors later, so your first version is not a dead end.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Same footer as index.html -->
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © <span id="year"></span> Asta Epsilon Infotronics. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

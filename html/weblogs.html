@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Weblogs &amp; Recent Builds | Asta Epsilon Infotronics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../media/pictures/favicon.png" />
+
+</head>
+<body>
+  <div class="page-shell">
+    <!-- NAVBAR -->
+    <header>
+      <div class="container nav">
+        <div class="nav-left">
+          <a href="index.html">
+            <img src="../media/pictures/logo.png" alt="Asta Epsilon Infotronics logo" class="logo" />
+          </a>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="about.html">About Us</a>
+          <a href="services-web.html">Web Dev</a>
+          <a href="services-software.html">Software</a>
+          <a href="services-other.html">Other Services</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="weblogs-hero">
+        <div class="weblogs-hero-overlay"></div>
+        <div class="weblogs-hero-content container">
+          <div>
+            <div class="hero-kicker">Weblogs</div>
+            <h1 class="hero-title">
+              Recent builds &amp; layouts<br />
+              <span>from Asta Epsilon Infotronics</span>
+            </h1>
+            <p class="hero-sub">
+              A gallery of static sites, web apps, and device dashboards the team has worked on recently, captured as quick carousels.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECENT BUILDS CAROUSELS -->
+      <section class="weblogs-section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Highlights</div>
+            <h2 class="section-title">Recent builds</h2>
+            <p class="section-sub">
+              Each carousel shows a few key screens from a project: how the layout flows, how sections are organised, and how devices and data show up on screen.
+            </p>
+          </div>
+
+          <div class="weblogs-grid">
+            <!-- Build 1 -->
+            <div class="carousel-shell" data-carousel="build-1">
+              <div class="carousel-viewport">
+                <div class="carousel-track">
+                  <div class="carousel-slide active">
+                    <img src="../media/pictures/hotel-1.jpeg" alt="Build 1 hero section" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="../media/pictures/hotel-2.jpeg" alt="Build 1 services or features section" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="../media/pictures/hotel-3.jpeg" alt="Build 1 contact or footer section" />
+                  </div>
+                </div>
+                <div class="carousel-dots">
+                  <button class="carousel-dot active" data-index="0"></button>
+                  <button class="carousel-dot" data-index="1"></button>
+                  <button class="carousel-dot" data-index="2"></button>
+                </div>
+              </div>
+              <div class="carousel-footer">
+                <div class="carousel-title">Darjeeling Heights</div>
+                <div class="carousel-desc">
+                  Static site for a hotel, with information on rooms, amenities, location, and booking details.
+                </div>
+                <a href="https://rp2005-ai.github.io/Darjeeling-heights/" class="carousel-link">View Site</a>
+              </div>
+            </div>
+
+            <!-- Build 2 -->
+            <div class="carousel-shell" data-carousel="build-2">
+              <div class="carousel-viewport">
+                <div class="carousel-track">
+                  <div class="carousel-slide active">
+                    <img src="../media/pictures/portfolio-1.png" alt="Build 2 dashboard overview" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="../media/pictures/portfolio-2.png" alt="Build 2 charts and metrics" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="../media/pictures/portfolio-3.png" alt="Build 2 settings or details view" />
+                  </div>
+                </div>
+                <div class="carousel-dots">
+                  <button class="carousel-dot active" data-index="0"></button>
+                  <button class="carousel-dot" data-index="1"></button>
+                  <button class="carousel-dot" data-index="2"></button>
+                </div>
+              </div>
+              <div class="carousel-footer">
+                <div class="carousel-title">Portfolio Site</div>
+                <div class="carousel-desc">
+                  A personal portfolio site template with sections for projects, skills, and contact information.
+                </div>
+                <a href="https://astaepsilongroupofficial.github.io/thecruciblecollective/" class="carousel-link">View Site</a>
+              </div>
+            </div>
+
+    
+
+            <!-- Spacer on wide screens to keep layout nice -->
+            <div class="carousel-shell" style="visibility:hidden;"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © <span id="year"></span> Asta Epsilon Infotronics. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Multi-carousel logic: each shell rotates its own slides every 3 seconds
+    const CAROUSEL_INTERVAL = 3000;
+
+    document.querySelectorAll('.carousel-shell').forEach(shell => {
+      const slides = shell.querySelectorAll('.carousel-slide');
+      const dots = shell.querySelectorAll('.carousel-dot');
+      if (!slides.length) return;
+
+      let index = 0;
+
+      function showSlide(i) {
+        slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+        index = i;
+      }
+
+      function next() {
+        const nextIndex = (index + 1) % slides.length;
+        showSlide(nextIndex);
+      }
+
+      let timer = setInterval(next, CAROUSEL_INTERVAL);
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const i = parseInt(dot.getAttribute('data-index'), 10);
+          showSlide(i);
+          clearInterval(timer);
+          timer = setInterval(next, CAROUSEL_INTERVAL);
+        });
+      });
+
+      shell.addEventListener('mouseenter', () => clearInterval(timer));
+      shell.addEventListener('mouseleave', () => {
+        clearInterval(timer);
+        timer = setInterval(next, CAROUSEL_INTERVAL);
+      });
+    });
+  </script>
+</body>
+</html>

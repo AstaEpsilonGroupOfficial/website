@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Asta Epsilon Infotronics | Modern Tech Collective</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../media/pictures/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Glacial Indifference via CDN -->
+  <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet" />
+
+</head>
+<body>
+  <!-- WRAPPER TO SHARE 100VH -->
+  <div class="page-shell">
+    <!-- NAVBAR (15vh) -->
+    <header>
+      <div class="container nav">
+        <div class="nav-left">
+          <a href="index.html">
+            <img src="../media/pictures/logo.png" alt="Asta Epsilon Infotronics logo" class="logo" />
+          </a>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="about.html">About Us</a>
+          <a href="services-web.html">Web Dev</a>
+          <a href="services-software.html">Software</a>
+          <a href="services-other.html">Other Services</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO CAROUSEL ONLY (85vh) -->
+    <section class="hero-video">
+      <div class="hero-video-wrap">
+        <video class="hero-video-bg" autoplay loop muted playsinline>
+          <source src="../media/videos/hero-video.mp4" type="video/mp4" />
+          <!-- Add a WebM source if you have one -->
+          Your browser does not support HTML5 video.
+        </video>
+
+        <!-- Gradient overlay to keep text readable -->
+        <div class="hero-video-overlay"></div>
+
+        <!-- Hero text content on top of video -->
+        <div class="hero-video-content container">
+          <div class="hero-copy">
+            <h1>
+              Industry&nbsp;grade <span>tech</span><br />
+              built for your <span>needs</span>
+            </h1>
+            <p>
+              Asta Epsilon Infotronics blends academic curiosity with production discipline to ship reliable web, software, design, and IoT solutions that behave like they came out of a studio, not a classroom.
+            </p>
+
+            <div class="hero-badges">
+              <div class="hero-badge">Web development</div>
+              <div class="hero-badge">Software engineering</div>
+              <div class="hero-badge">Adverts & Marketing</div>
+              <div class="hero-badge">IoT devices</div>
+            </div>
+
+            <div class="hero-cta">
+              <a href="contact.html" class="btn-primary">Start a project</a>
+              <a href="devices.html" class="btn-outline">Explore devices</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="why-us">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Why Asta Epsilon?</h2>
+          <p class="section-subtitle">
+            Industry-grade output with student-level energy. Every project is a lab where ideas are tested, instruments are calibrated, and only the best version ships.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-main">
+            <div class="pill-label">How we work</div>
+            <p>
+              The group operates like a small engineering studio: scoped requirements, version-controlled code, review cycles, and repeatable processes instead of one-off hacks.
+            </p>
+            <p>
+              Because the team is close to the latest coursework and research, the stack stays modern while the delivery remains grounded in practical constraints like performance, maintainability, and cost.
+            </p>
+
+            <div class="why-points">
+              <div class="why-point">
+                <span class="why-icon">✓</span>
+                <div class="why-text">
+                  Static HTML/CSS/JS builds that are easy to host, secure by design, and quick to load.
+                </div>
+              </div>
+              <div class="why-point">
+                <span class="why-icon">✓</span>
+                <div class="why-text">
+                  Software and IoT projects planned with clear milestones, documentation, and handover notes.
+                </div>
+              </div>
+              <div class="why-point">
+                <span class="why-icon">✓</span>
+                <div class="why-text">
+                  Visual design that aligns with your brand so websites, print, and devices look like one system.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reviews -->
+          <aside class="reviews" aria-label="Client reviews">
+            <div class="reviews-header">
+              <div class="reviews-title">Recent feedback</div>
+              <div class="reviews-meta">Few testimonials</div>
+            </div>
+
+            <div class="review-list">
+              <div class="review">
+                <div class="review-rating">★★★★★</div>
+                <div class="review-text">
+                  The team shipped a fast, clean website and handled every change request like a proper agency.
+                </div>
+                <div class="review-author">Faculty innovation cell · Web revamp</div>
+              </div>
+
+              <div class="review">
+                <div class="review-rating">★★★★★</div>
+                <div class="review-text">
+                  Their custom posters and event branding made our tech fest look polished without losing the student vibe.
+                </div>
+                <div class="review-author">Campus tech fest · Design &amp; print</div>
+              </div>
+
+              <div class="review">
+                <div class="review-rating">★★★★☆</div>
+                <div class="review-text">
+                  The IoT sensors were neatly assembled, documented, and ready to plug into our existing dashboards.
+                </div>
+                <div class="review-author">Local startup · Sensor prototypes</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        © <span id="year"></span> Asta Epsilon Infotronics. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="devices.html">Devices</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimal JS: carousel + dynamic year -->
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hero carousel (auto + dots)
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentIndex = 0;
+    let carouselTimer = null;
+    const INTERVAL = 3000; // 3 seconds
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      currentIndex = index;
+    }
+
+    function nextSlide() {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      showSlide(nextIndex);
+    }
+
+    function startCarousel() {
+      stopCarousel();
+      carouselTimer = setInterval(nextSlide, INTERVAL);
+    }
+
+    function stopCarousel() {
+      if (carouselTimer) {
+        clearInterval(carouselTimer);
+        carouselTimer = null;
+      }
+    }
+
+    // Dot navigation
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-slide'), 10);
+        showSlide(index);
+        startCarousel();
+      });
+    });
+
+    // Pause on hover for better UX
+    const heroCarousel = document.querySelector('.hero-carousel');
+    heroCarousel.addEventListener('mouseenter', stopCarousel);
+    heroCarousel.addEventListener('mouseleave', startCarousel);
+
+    // Kick things off
+    startCarousel();
+  </script>
+</body>
+</html>

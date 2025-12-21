@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us | Asta Epsilon Infotronics</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../media/pictures/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet" />
+
+</head>
+<body>
+  <div class="page-shell">
+    <!-- NAVBAR -->
+    <header>
+      <div class="container nav">
+        <div class="nav-left">
+          <a href="index.html">
+            <img src="../media/pictures/logo.png" alt="Asta Epsilon Infotronics logo" class="logo" />
+          </a>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="about.html">About Us</a>
+          <a href="services-web.html">Web Dev</a>
+          <a href="services-software.html">Software</a>
+          <a href="services-other.html">Other Services</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO IMAGE -->
+      <section class="contact-hero">
+        <div class="contact-hero-overlay"></div>
+        <div class="contact-hero-content container">
+          <div>
+            <div class="hero-kicker">Contact</div>
+            <h1 class="hero-title">
+              Have a project idea in mind?<br />
+              <span>Connect with us</span>
+            </h1>
+            <p class="hero-sub">
+              Share a few lines about your web, software, design, or IoT idea and the Asta Epsilon Infotronics team will get back with questions, options, and realistic timelines.
+            </p>
+            <div class="hero-cta">
+              <a href="#contact-form" class="btn-primary">Send a message</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT FORM + DETAILS -->
+      <section id="contact-form">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Get in touch</div>
+            <h2 class="section-title">Tell us about your build</h2>
+            <p class="section-sub">
+              Use the message box to describe what you need. The text starts with a simple prompt so you don’t have to begin from a blank page.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Form card -->
+            <div class="contact-form-card">
+              <h3>Message</h3>
+              <form onsubmit="sendMail(event)">
+                <div>
+                  <label for="message">Your message</label>
+                  <textarea id="message" name="message">Hi! I am interested in ...</textarea>
+                  <p class="contact-hint">
+                    Include what type of work this is (website, software, IoT, design), any deadlines, and a rough idea of your budget.
+                  </p>
+                </div>
+                <div>
+                  <button type="submit" class="btn-primary">Send via email</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Contact details -->
+            <aside class="contact-details-card">
+              <h3>Contact details</h3>
+              <ul class="contact-list">
+                <li>
+                  <div class="contact-item-title">Sales &amp; general enquiries</div>
+                  <div>
+                    Email:
+                    <a href="mailto:sales.astaepsilon@gmail.com" class="contact-link">sales.astaepsilon@gmail.com</a>
+                  </div>
+                  <div class="contact-item-meta">
+                    Use this for new projects, quotes, and collaboration ideas.
+                  </div>
+                </li>
+                <li>
+                  <div class="contact-item-title">Phone</div>
+                  <div>
+                    Call:
+                    <a href="tel:+919831300637" class="contact-link">+91 98313 00637</a>
+                  </div>
+                  <div class="contact-item-meta">
+                    9:00 AM - 8:00 PM, Monday to Saturday (IST).
+                  </div>
+                </li>
+                <li>
+                  <div class="contact-item-title">WhatsApp</div>
+                  <div>
+                    Message:
+                    <a href="https://wa.me/919831300637?text=Hi%20I%20am%20interested%20in..." class="contact-link" target="_blank" rel="noopener">+91 98313 00637</a>
+                  </div>
+                  <div class="contact-item-meta">
+                    24 x 7 for quick questions; detailed estimates still go over email.
+                  </div>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © <span id="year"></span> Asta Epsilon Infotronics. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple mailto-based "submission" – opens user's email client with the message filled in
+    function sendMail(event) {
+      event.preventDefault();
+      const textarea = document.getElementById('message');
+      const body = encodeURIComponent(textarea.value);
+      const email = 'youremail@example.com'; // replace with your real address
+      const subject = encodeURIComponent('New enquiry from Asta Epsilon Infotronics website');
+      const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;  // triggers email client with pre-filled content [web:191][web:196]
+    }
+  </script>
+</body>
+</html>

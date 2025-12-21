@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Devices &amp; PCBs | Asta Epsilon Infotronics</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../media/pictures/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet" />
+
+  
+</head>
+<body>
+  <div class="page-shell">
+    <!-- NAVBAR -->
+    <header>
+      <div class="container nav">
+        <div class="nav-left">
+          <a href="index.html">
+            <img src="../media/pictures/logo.png" alt="Asta Epsilon Infotronics logo" class="logo" />
+          </a>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="about.html">About Us</a>
+          <a href="services-web.html">Web Dev</a>
+          <a href="services-software.html">Software</a>
+          <a href="services-other.html">Other Services</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="devices-hero">
+        <video autoplay loop muted playsinline>
+          <source src="../media/videos/devices-hero.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="devices-hero-overlay"></div>
+        <div class="devices-hero-content container">
+          <div>
+            <div class="hero-kicker">Devices &amp; hardware</div>
+            <h1 class="hero-title">
+              Custom PCBs, sensors<br />
+              <span>and small devices</span>
+            </h1>
+            <p class="hero-sub">
+              Asta Epsilon Infotronics designs and assembles custom PCBs, as well as ready-to-use sensor modules and small devices, so projects can move from breadboard to bench-tested hardware.
+            </p>
+            <div class="hero-cta">
+              <a href="#devices" class="btn-primary">View devices</a>
+              <a href="contact.html" class="btn-outline">Talk specs with us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEVICES / CARDS -->
+      <section id="devices" class="devices-section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Modules &amp; services</div>
+            <h2 class="section-title">Available hardware</h2>
+            <p class="section-sub">
+              From one-off boards to small runs of sensor modules, the team focuses on clear pinouts, stable behaviour, and documentation you can actually wire from.
+            </p>
+          </div>
+
+          <div class="device-grid">
+            <!-- PCB design & assembly -->
+            <article class="device-card pcb">
+              <div class="device-inner">
+                <div class="device-label">Service</div>
+                <h3 class="device-name">Custom PCB design &amp; assembly</h3>
+                <p class="device-text">
+                  Board-level design and assembly for your circuits, from schematics to fabricated PCBs with components placed and soldered.
+                </p>
+                <p class="device-text">
+                  Ideal for student projects, prototypes, and small tools that have outgrown jumper wires.
+                </p>
+                <p class="device-meta">
+                  Final pricing depends on layer count, component density, and quantity.
+                </p>
+                <div class="device-cta">
+                  <a href="contact.html" class="btn-primary">Start a PCB brief</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Flame sensor -->
+            <article class="device-card flame">
+              <div class="device-inner">
+                <div class="device-label">Sensor module</div>
+                <h3 class="device-name">Flame sensor module</h3>
+                <p class="device-text">
+                  Compact flame detection module suitable for basic fire-detection experiments, robots, and safety demos.
+                </p>
+                <p class="device-text">
+                  Supplied with clear pin labels so you can plug it into microcontrollers or breadboards quickly.
+                </p>
+                <p class="device-meta">
+                  Recommended for lab use, demos, and student builds; not a certified safety device.
+                </p>
+                <div class="device-cta">
+                  <a href="contact.html" class="btn-primary">Order flame sensors</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Particulate sensor -->
+            <article class="device-card dust">
+              <div class="device-inner">
+                <div class="device-label">Sensor module</div>
+                <h3 class="device-name">Particulate sensor module</h3>
+                <p class="device-text">
+                  A particulate (dust) sensor module for monitoring basic air quality metrics in rooms, labs, or small enclosures.
+                </p>
+                <p class="device-text">
+                  Designed to integrate with microcontrollers and dashboards so you can visualise readings over time.
+                </p>
+                <p class="device-meta">
+                  Useful for projects in environmental monitoring, IoT, or research prototypes.
+                </p>
+                <div class="device-cta">
+                  <a href="contact.html" class="btn-primary">Order particulate sensors</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © <span id="year"></span> Asta Epsilon Infotronics. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="devices.html">Devices</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
